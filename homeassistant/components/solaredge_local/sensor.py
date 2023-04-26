@@ -298,7 +298,7 @@ class SolarEdgeSensor(SensorEntity):
     def update(self) -> None:
         """Get the latest data from the sensor and update the state."""
         self._data.update()
-        self._attr_native_value = self._data.data[self.entity_description.key]
+        self._attr_native_value = self._data.data.get(self.entity_description.key)
 
 
 class SolarEdgeData:
